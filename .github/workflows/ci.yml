@@ -16,7 +16,7 @@ jobs:
       - name: Login to proget
         uses: docker/login-action@v1
         with:
-          registry: https://proget.pollusmoveis.com.br
+          registry: https://proget.pollusmoveis.com.br/docker
           username: ${{ secrets.PROGET_USER }}
           password: ${{ secrets.PROGET_PASS }}
 
