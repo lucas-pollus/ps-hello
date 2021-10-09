@@ -1,8 +1,7 @@
 name: Build Docker
 on:
   push:
-    branches:
-      - "main"
+    branches: [main]
 
 jobs:
   docker:
@@ -16,7 +15,7 @@ jobs:
       - name: Login to proget
         uses: docker/login-action@v1
         with:
-          registry: https://proget.pollusmoveis.com.br
+          registry: http://localhost:8080
           username: ${{ secrets.PROGET_USER }}
           password: ${{ secrets.PROGET_PASS }}
 
@@ -25,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: proget.pollusmoveis.com.br/docker/apps/ps-hello:latest
+          tags: localhost:8080/docker/images/ps-hello:latest
