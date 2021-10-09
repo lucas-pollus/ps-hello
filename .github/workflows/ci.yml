@@ -20,8 +20,6 @@ jobs:
           password: ${{ secrets.PROGET_PASS }}
 
       - name: Build
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: localhost:8080/images/apps/ps-hello:latest
+        run: |
+          docker build . --file Dockerfile --tag localhost:8080/images/apps/ps-hello:latest
+          docker push localhost:8080/images/apps/ps-hello:latest
